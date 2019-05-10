@@ -39,7 +39,7 @@ class DataManager(object):
         count = 0
         skipped = 0
         for f in os.listdir(self.examples_path):
-            if len(f.split('_')[0]) > self.max_char_count:
+            if (len(f.split('_')[0]) > self.max_char_count) | (f in '../samples/.DS_Store'): 
                 continue
             arr, initial_len = resize_image(
                 os.path.join(self.examples_path, f),
